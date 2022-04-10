@@ -1,20 +1,33 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { NavigationContainer } from '@react-navigation/native';
+import { AuthScreen } from './screens/AuthScreen';
+import { HomeScreen } from './screens/HomeScreen';
+import { SettingsScreen } from './screens/SettingsScreen';
+import { MediaScreen } from './screens/MediaScreen';
+import { PlayList } from './screens/PlayList';
+import { ChoiceEmojiScreen } from './screens/ChoiceEmojiScreen';
+import { GenerateListScreen } from './screens/GenerateListScreen';
+import { TinderScreen } from './screens/TinderScreen';
+
+const Stack = createNativeStackNavigator();
+
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Screen name='AuthScreen' component={AuthScreen}></Stack.Screen>
+        <Stack.Screen name='HomeScreen' component={HomeScreen}></Stack.Screen>
+        <Stack.Screen name='SettingsScreen' component={SettingsScreen}></Stack.Screen>
+        <Stack.Screen name='MediaScreen' component={MediaScreen}></Stack.Screen>
+        <Stack.Screen name='PlayList' component={PlayList}></Stack.Screen>
+        <Stack.Screen name='ChoiceEmojiScreen' component={ChoiceEmojiScreen}></Stack.Screen>
+        <Stack.Screen name='GenerateListScreen' component={GenerateListScreen}></Stack.Screen>
+        <Stack.Screen name='TinderScreen' component={TinderScreen}></Stack.Screen>
+
+
+      </Stack.Navigator>
+    </NavigationContainer>
+
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

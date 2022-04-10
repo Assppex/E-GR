@@ -24,8 +24,6 @@ export default function App() {
         <Stack.Screen name='ChoiceEmojiScreen' component={ChoiceEmojiScreen}></Stack.Screen>
         <Stack.Screen name='GenerateListScreen' component={GenerateListScreen}></Stack.Screen>
         <Stack.Screen name='TinderScreen' component={TinderScreen}></Stack.Screen>
-
-
       </Stack.Navigator>
     </NavigationContainer>
 

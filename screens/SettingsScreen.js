@@ -48,11 +48,19 @@ export const SettingsScreen = ({ navigation }) => {
                 <View style={{ marginLeft: '3%' }}>
                     <Text style={{ fontSize: 20, fontWeight: 'bold' }}>Темная тема</Text>
                 </View>
+
+
             </View>
 
 
             <View style={styles.container}>
-
+                <View style={styles.exitToubchble}>
+                    <LinearGradient colors={['#d4fc79', '#96e6a1']} style={styles.toubchble}>
+                        <TouchableOpacity onPress={() => navigation.navigate('AuthScreen')}>
+                            <Text style={{ fontSize: 20, fontWeight: 'bold' }}>Выйти</Text>
+                        </TouchableOpacity>
+                    </LinearGradient>
+                </View>
             </View>
             <View style={styles.containerNav}>
                 <View style={styles.icons}>
@@ -86,6 +94,11 @@ const styles = StyleSheet.create({
         height: '100%',
 
     },
+    exitToubchble: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
     userAvatar: {
         flex: 1,
         flexDirection: 'row',
@@ -104,7 +117,7 @@ const styles = StyleSheet.create({
     toubchble: {
         borderRadius: 60,
         alignContent: 'center',
-        paddingHorizontal: 25,
+        paddingHorizontal: 85,
         paddingVertical: 5,
     },
     text: {

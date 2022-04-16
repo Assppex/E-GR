@@ -4,12 +4,9 @@ import { View, Text, StyleSheet, Button, TouchableOpacity, FlatLis, FlatList } f
 import { LinearGradient } from "expo-linear-gradient";
 import { AuthScreen } from "./AuthScreen";
 import { Avatar, normalize } from "react-native-elements";
-import {readEmojis, readTextFile} from "../scripts/EmojiClass.js"
+import {InitializeEmojis} from "../scripts/EmojiClass.js"
 
-console.log("here");
-var file = require('../matvey.tsv');
-console.log(file);
-var emojis = readEmojis(file);
+const emojis = InitializeEmojis();
 console.log(emojis);
 
 export const ChoiceEmojiScreen = ({ navigation }) => {
@@ -56,7 +53,7 @@ export const ChoiceEmojiScreen = ({ navigation }) => {
                     data={emoji}
                     renderItem={({ item }) => (
                         <View style={styles.oneemoji}>
-                            <Avatar onPress={() => navigation.navigate('GenerateListScreen')} rounded size={60} source={require('../images/emblem.png')} />
+                            <Button onPress={() => navigation.navigate('GenerateListScreen')} rounded size={60} title={item.text} />
                         </View>
                     )}
                 >

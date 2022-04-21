@@ -19,20 +19,10 @@ const TrackDet = ({
   onArtistPress,
 }) => (
   <View style={styles.container}>
-    <TouchableOpacity onPress={onAddPress}>
-      <Image style={styles.button}
-        source={require('../images/emblem.png')} />
-    </TouchableOpacity>
     <View style={styles.detailsWrapper}>
       <Text style={styles.title} onPress={onTitlePress}>{title}</Text>
       <Text style={styles.artist} onPress={onArtistPress}>{artist}</Text>
     </View>
-    <TouchableOpacity onPress={onMorePress}>
-      <View style={styles.moreButton}>
-        <Image style={styles.moreButtonIcon}
-          source={require('../images/emblem.png')} />
-      </View>
-    </TouchableOpacity>
   </View>
 );
 

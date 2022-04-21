@@ -8,7 +8,6 @@ import { Avatar } from "react-native-elements";
 
 
 export const AuthScreen = ({ navigation }) => {
-    const e = require('emoji-dictionary')
     return (
         <ImageBackground source={require('../images/vibe.gif')} style={styles.lineargradient}>
             <View style={styleEmblem.emblem}>

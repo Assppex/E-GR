@@ -6,22 +6,20 @@ import { AuthScreen } from "./AuthScreen";
 import { Avatar, normalize } from "react-native-elements";
 
 
+export const ChoiceEmojiScreenTwo = ({ route, navigation }) => {
 
-export const ChoiceEmojiScreenTwo = ({ navigation }) => {
+	var emojis = route.params.emojis;
+	emojis.CalculateScreen2();
+	console.log(emojis);
+	emojis.ClearSum();
 
-    const e = require('emoji-dictionary')
-    const [emoji] = useState([
-        { key: '1', text: '\u{1F30B}' },
-        { key: '2', text: '\u{1F30A}' },
-        { key: '3', text: '\u{1F31C}' },
-        { key: '4', text: '\u{1F31D}' },
-        { key: '5', text: '\u{1F320}' },
-        { key: '6', text: '\u{1F423}' },
-        
-
-    ]);
+	var screen2_emojis = [];
+	for (var i = 0; i < emojis.screen2.length; i++) {
+		screen2_emojis.push({key: i, text: emojis.screen2[i].code});
+	}
 
 
+    const [emoji] = useState(screen2_emojis);
 
 
     return (
@@ -41,7 +39,7 @@ export const ChoiceEmojiScreenTwo = ({ navigation }) => {
                     renderItem={({ item }) => (
                         <View style={styles.oneemoji}>
                             {/* <Avatar onPress={() => navigation.navigate('GenerateListScreen')} rounded size={60} source={require('e../images/emblem.png')} /> */}
-                            <TouchableOpacity>
+                            <TouchableOpacity onPress={() => emojis.AddToSum(item.key)}>
                                <Text style={{fontSize: 45}}>{item.text}</Text> 
                             </TouchableOpacity>
                             
@@ -51,7 +49,7 @@ export const ChoiceEmojiScreenTwo = ({ navigation }) => {
 
                 </FlatList>
                 <View style={{flex: 2, alignItems:'center', justifyContent:"center"}}>
-                    <TouchableOpacity onPress={() => navigation.navigate('ChoiceEmojiScreenThree')}>
+                    <TouchableOpacity onPress={() => navigation.navigate('ChoiceEmojiScreenThree', {emojis: emojis})}>
                         <Text style={{fontSize: 40}}> Next </Text>
                     </TouchableOpacity>
                     

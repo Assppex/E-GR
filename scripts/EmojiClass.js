@@ -1,4 +1,3 @@
-
 class SingleEmoji {
   constructor(unicode, weight, category, subcategory, id) {
       this.code = unicode;
@@ -9,14 +8,139 @@ class SingleEmoji {
   }
 }
 
-class Emojis {
+export class Emojis {
+	constructor() {
+		this.all = InitializeEmojis();
+		this.base = [];
+		this.screen2 = [];
+		this.screen3 = [];
+		this.all_screen2 = [];
+		this.all_else = [];
+		this.onScreen1 = true;
+
+		for (const emoji of this.all) {
+			if (emoji.subcategory == "База") {
+				this.base.push(emoji);
+			}
+			else if (emoji.subcategory == "ППО") {
+				this.all_screen2.push(emoji);
+			}
+			else {
+				this.all_else.push(emoji);
+			}
+		}
+
+		this.sum = [
+			{category: "Радостное", value: 0}, 
+			{category: "Грустное", value: 0}, 
+			{category: "Флекс", value: 0}, 
+			{category: "Молодежное", value: 0}, 
+			{category: "Спокойное", value: 0}, 
+			{category: "Работа/учеба", value: 0}, 
+			{category: "Агрессивное", value: 0}, 
+			{category: "Ностальгия", value: 0}, 
+			{category: "Мрачное", value: 0}, 
+		]
+	}
+
+	
+	AddToSum(key) {
+		for (var i of this.sum) {
+			if (this.onScreen1) {
+				if (this.base[key].category == i.category) {
+					i.value += this.base[key].weight;
+				}
+			}
+			else {
+				if (this.screen2[key].category == i.category) {
+					i.value += this.screen2[key].weight;
+				}
+			}
+		}
+	}
+
+	ClearSum() {
+		for (var it of this.sum) {
+			it.value = 0;
+		}
+	}
+
+	RemoveFromSum(key) {
+		for (var i of this.sum) {
+			if (this.base[key].category == i.category) {
+				i.value -= this.base[key].weight;
+			}
+		}
+	}
+
+	CalculateScreen2() {
+		this.onScreen1 = false;
+
+		var sortedSum = this.sum.sort(function(a, b) {
+			return b.value - a.value;
+		})
+
+		var num_subcategories = 1;
+
+		var subcategory1 = sortedSum[0].category;
+		if (sortedSum[1].value != 0) num_subcategories++;
+		if (sortedSum[2].value != 0) num_subcategories++;
+
+		var return_val = [];
+
+		var num_sub1 = 0;
+		var num_sub2 = 0;
+		var num_sub3 = 0;
+
+		switch(num_subcategories) {
+			case 1:
+				num_sub1 = 6;
+				break;
+			case 2:
+				num_sub1 = 3;
+				num_sub2 = 3;
+				break;
+			case 3:
+				num_sub1 = 2;
+				num_sub2 = 2;
+				num_sub3 = 2;
+				break;
+		}
+
+		for (var em of this.all_screen2) {
+			if (em.category == sortedSum[0].category && num_sub1 > 0) {
+				this.screen2.push(em);
+				num_sub1--;
+			} 
+			if (em.category == sortedSum[1].category && num_sub2 > 0) {
+				this.screen2.push(em);
+				num_sub2--;
+			} 
+			if (em.category == sortedSum[2].category && num_sub3 > 0) {
+				this.screen2.push(em);
+				num_sub3--;
+			} 
+		}
+	}
+
+	CalculateScreen3() {
+		var sortedSum = this.sum.sort(function(a, b) {
+			return b.value - a.value;
+		})
+
+		for (var em of this.all_else) {
+			if (em.category == sortedSum[0].category) {
+				this.screen3.push(em);
+			}
+		}
+	}
+
 }
 
 
-export function InitializeEmojis()
+function InitializeEmojis()
 {
 	var res = [];
-
 
 	// https://docs.google.com/spreadsheets/d/15lAB2fIap1gdpQms-ihaG5klumSotlx8fZYhEe7EBv0/edit?usp=sharing
 

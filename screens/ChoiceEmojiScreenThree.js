@@ -7,19 +7,19 @@ import { Avatar, normalize } from "react-native-elements";
 
 
 
-export const ChoiceEmojiScreenThree = ({ navigation }) => {
+export const ChoiceEmojiScreenThree = ({ route, navigation }) => {
 
-    const e = require('emoji-dictionary')
-    const [emoji] = useState([
-        
-        { key: '1', text: '\u{1F31C}' },
-        { key: '2', text: '\u{1F31D}' },
-        { key: '3', text: '\u{1F320}' },
-        { key: '4', text: '\u{1F423}' },
-        { key: '5', text: '\u{1F30B}' },
-        { key: '6', text: '\u{1F30A}' },
+	var emojis = route.params.emojis;
+	emojis.CalculateScreen3();
 
-    ]);
+	var screen3_emojis = [];
+	for (var i = 0; i < emojis.screen3.length; i++) {
+		screen3_emojis.push({key: i, text: emojis.screen3[i].code});
+	}
+
+	console.log(emojis);
+
+    const [emoji] = useState(screen3_emojis);
 
 
 
@@ -51,7 +51,7 @@ export const ChoiceEmojiScreenThree = ({ navigation }) => {
 
                 </FlatList>
                 <View style={{flex: 2, alignItems:'center', justifyContent:"center"}}>
-                    <TouchableOpacity onPress={() => navigation.navigate('ChoiceEmojiScreenThree')}>
+                    <TouchableOpacity onPress={() => navigation.navigate('GenerateListScreen')}>
                         <Text style={{fontSize: 40}}> Next </Text>
                     </TouchableOpacity>
                     

@@ -67,10 +67,18 @@ export class Emojis {
 
 	RemoveFromSum(key) {
 		for (var i of this.sum) {
-			if (this.base[key].category == i.category) {
-				i.value -= this.base[key].weight;
+			if (this.onScreen1) {
+				if (this.base[key].category == i.category) {
+					i.value -= this.base[key].weight;
+				}
+			}
+			else {
+				if (this.screen2[key].category == i.category) {
+					i.value -= this.screen2[key].weight;
+				}
 			}
 		}
+
 	}
 
 	CalculateScreen2() {

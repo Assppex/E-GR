@@ -39,7 +39,7 @@ export const ChoiceEmojiScreenTwo = ({ route, navigation }) => {
                     renderItem={({ item }) => (
                         <View style={styles.oneemoji}>
                             {/* <Avatar onPress={() => navigation.navigate('GenerateListScreen')} rounded size={60} source={require('e../images/emblem.png')} /> */}
-                            <TouchableOpacity onPress={() => emojis.AddToSum(item.key)}>
+                            <TouchableOpacity onPress={() => {item.pressed ? emojis.RemoveFromSum(item.key) : emojis.AddToSum(item.key); item.pressed = !item.pressed}}>
                                <Text style={{fontSize: 45}}>{item.text}</Text> 
                             </TouchableOpacity>
                             

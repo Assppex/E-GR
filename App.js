@@ -8,7 +8,7 @@ import { PlayList } from './screens/PlayList';
 import { ChoiceEmojiScreen } from './screens/ChoiceEmojiScreen';
 import { GenerateListScreen } from './screens/GenerateListScreen';
 import { TinderScreen } from './screens/TinderScreen';
-
+import React from "react";
 const Stack = createNativeStackNavigator();
 
 

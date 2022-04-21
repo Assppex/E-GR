@@ -48,25 +48,28 @@ export const SettingsScreen = ({ navigation }) => {
                 <View style={{ marginLeft: '3%' }}>
                     <Text style={{ fontSize: 20, fontWeight: 'bold' }}>Темная тема</Text>
                 </View>
+
+
             </View>
 
 
             <View style={styles.container}>
-
+                <View style={styles.exitToubchble}>
+                    <LinearGradient colors={['#d4fc79', '#96e6a1']} style={styles.toubchble}>
+                        <TouchableOpacity onPress={() => navigation.navigate('AuthScreen')}>
+                            <Text style={{ fontSize: 20, fontWeight: 'bold' }}>Выйти</Text>
+                        </TouchableOpacity>
+                    </LinearGradient>
+                </View>
             </View>
             <View style={styles.containerNav}>
                 <View style={styles.icons}>
-                    <Avatar source={require('../images/mediatekaIcon.png')} rounded size={60} onPress={() => navigation.navigate("MediaScreen")}>
+                    <Avatar source={require('../images/mediatekaIcon.png')} rounded size={40} onPress={() => navigation.navigate("MediaScreen")}>
                     </Avatar>
-                    <Avatar source={require('../images/homeIcon.png')} rounded size={60} onPress={() => navigation.navigate("HomeScreen")} >
+                    <Avatar source={require('../images/homeIcon.png')} rounded size={40} onPress={() => navigation.navigate("HomeScreen")} >
                     </Avatar>
-                    <Avatar source={require('../images/settingsIcon.png')} rounded size={60} onPress={() => navigation.navigate("SettingsScreen")}>
+                    <Avatar source={require('../images/settingsIcon.png')} rounded size={40} onPress={() => navigation.navigate("SettingsScreen")}>
                     </Avatar>
-                </View>
-                <View style={styles.iconsText}>
-                    <Text style={{ fontSize: '15dp', fontWeight: 'bold' }}>Медиатека</Text>
-                    <Text style={{ fontSize: '15dp', fontWeight: 'bold' }}>Главная</Text>
-                    <Text style={{ fontSize: '15dp', fontWeight: 'bold' }}>Настроки</Text>
                 </View>
             </View>
 
@@ -86,6 +89,11 @@ const styles = StyleSheet.create({
         height: '100%',
 
     },
+    exitToubchble: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
     userAvatar: {
         flex: 1,
         flexDirection: 'row',
@@ -104,7 +112,7 @@ const styles = StyleSheet.create({
     toubchble: {
         borderRadius: 60,
         alignContent: 'center',
-        paddingHorizontal: 25,
+        paddingHorizontal: 85,
         paddingVertical: 5,
     },
     text: {
@@ -112,15 +120,20 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
     },
     containerNav: {
-        flex: 1,
+        flex: 0.5,
         flexDirection: 'column',
-        alignContent: 'center'
+        alignContent: 'center',
+        borderTopLeftRadius: 40,
+        borderTopRightRadius: 40,
+        backgroundColor: 'black',
+        height: 60
     },
     icons: {
         flex: 1,
         marginLeft: '10%',
         marginRight: '10%',
         flexDirection: 'row',
+        alignItems:'center',
         justifyContent: 'space-between',
     },
     iconsText: {

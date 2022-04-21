@@ -1,6 +1,6 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
-import { View, Text, StyleSheet, Button, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, Button, TouchableOpacity, ImageBackground } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { AuthScreen } from "./AuthScreen";
 import { Avatar, normalize } from "react-native-elements";
@@ -8,7 +8,7 @@ import { Avatar, normalize } from "react-native-elements";
 
 export const HomeScreen = ({ navigation }) => {
     return (
-        <LinearGradient colors={["#ed6ea0", "#ec8c69"]} style={styles.lineargradient}>
+        <ImageBackground source={require('../images/R8jZ.gif')} style={styles.lineargradient}>
             <View style={styles.containerText}>
                 <Text style={styles.text}>Какое у тебя {"\n"}сегодня настроение?</Text>
             </View>
@@ -23,21 +23,16 @@ export const HomeScreen = ({ navigation }) => {
             </View>
             <View style={styles.containerNav}>
                 <View style={styles.icons}>
-                    <Avatar source={require('../images/mediatekaIcon.png')} rounded size={60} onPress={() => navigation.navigate("MediaScreen")}>
+                    <Avatar source={require('../images/mediatekaIcon.png')} rounded size={40} onPress={() => navigation.navigate("MediaScreen")}>
                     </Avatar>
-                    <Avatar source={require('../images/homeIcon.png')} rounded size={60} onPress={() => navigation.navigate("HomeScreen")}>
+                    <Avatar source={require('../images/homeIcon.png')} rounded size={40} onPress={() => navigation.navigate("HomeScreen")}>
                     </Avatar>
-                    <Avatar source={require('../images/settingsIcon.png')} rounded size={60} onPress={() => navigation.navigate("SettingsScreen")}>
+                    <Avatar source={require('../images/settingsIcon.png')} rounded size={40} onPress={() => navigation.navigate("SettingsScreen")}>
                     </Avatar>
-                </View>
-                <View style={styles.iconsText}>
-                    <Text style={{ fontSize: '15dp', fontWeight: 'bold' }}>Медиатека</Text>
-                    <Text style={{ fontSize: '15dp', fontWeight: 'bold' }}>Главная</Text>
-                    <Text style={{ fontSize: '15dp', fontWeight: 'bold' }}>Настроки</Text>
                 </View>
             </View>
 
-        </LinearGradient>
+        </ImageBackground>
     );
 }
 
@@ -72,15 +67,20 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
     },
     containerNav: {
-        flex: 1,
+        flex: 0.5,
         flexDirection: 'column',
-        alignContent: 'center'
+        alignContent: 'center',
+        borderTopLeftRadius: 40,
+        borderTopRightRadius: 40,
+        backgroundColor: 'black',
+        height: 60
     },
     icons: {
         flex: 1,
         marginLeft: '10%',
         marginRight: '10%',
         flexDirection: 'row',
+        alignItems: 'center',
         justifyContent: 'space-between',
     },
     iconsText: {

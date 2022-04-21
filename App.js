@@ -8,6 +8,9 @@ import { PlayList } from './screens/PlayList';
 import { ChoiceEmojiScreen } from './screens/ChoiceEmojiScreen';
 import { GenerateListScreen } from './screens/GenerateListScreen';
 import { TinderScreen } from './screens/TinderScreen';
+import { ChoiceEmojiScreenTwo } from './screens/ChoiceEmojiScreenTwo';
+import { ChoiceEmojiScreenThree } from './screens/ChoiceEmojiScreenThree';
+import React from 'react';
 
 const Stack = createNativeStackNavigator();
 
@@ -24,8 +27,8 @@ export default function App() {
         <Stack.Screen name='ChoiceEmojiScreen' component={ChoiceEmojiScreen}></Stack.Screen>
         <Stack.Screen name='GenerateListScreen' component={GenerateListScreen}></Stack.Screen>
         <Stack.Screen name='TinderScreen' component={TinderScreen}></Stack.Screen>
-
-
+        <Stack.Screen name='ChoiceEmojiScreenTwo' component={ChoiceEmojiScreenTwo}></Stack.Screen>
+        <Stack.Screen name='ChoiceEmojiScreenThree' component={ChoiceEmojiScreenThree}></Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
 

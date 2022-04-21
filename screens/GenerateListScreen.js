@@ -11,7 +11,7 @@ export const GenerateListScreen = ({ navigation }) => {
     return (
         <LinearGradient colors={["#ed6ea0", "#ec8c69"]} style={styles.lineargradient}>
             <View style={styles.topView}>
-                <Avatar onPress={() => navigation.navigate('ChoiceEmojiScreen')} source={require('../images/backIcon.png')} rounded size={35} />
+                <Avatar onPress={() => navigation.navigate('ChoiceEmojiScreenThree')} source={require('../images/backIcon.png')} rounded size={35} />
                 <Avatar onPress={() => navigation.navigate('HomeScreen')} source={require('../images/homeIcon.png')} rounded size={35} />
             </View>
             <View style={styles.text}>

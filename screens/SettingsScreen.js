@@ -64,17 +64,12 @@ export const SettingsScreen = ({ navigation }) => {
             </View>
             <View style={styles.containerNav}>
                 <View style={styles.icons}>
-                    <Avatar source={require('../images/mediatekaIcon.png')} rounded size={60} onPress={() => navigation.navigate("MediaScreen")}>
+                    <Avatar source={require('../images/mediatekaIcon.png')} rounded size={40} onPress={() => navigation.navigate("MediaScreen")}>
                     </Avatar>
-                    <Avatar source={require('../images/homeIcon.png')} rounded size={60} onPress={() => navigation.navigate("HomeScreen")} >
+                    <Avatar source={require('../images/homeIcon.png')} rounded size={40} onPress={() => navigation.navigate("HomeScreen")} >
                     </Avatar>
-                    <Avatar source={require('../images/settingsIcon.png')} rounded size={60} onPress={() => navigation.navigate("SettingsScreen")}>
+                    <Avatar source={require('../images/settingsIcon.png')} rounded size={40} onPress={() => navigation.navigate("SettingsScreen")}>
                     </Avatar>
-                </View>
-                <View style={styles.iconsText}>
-                    <Text style={{ fontSize: '15dp', fontWeight: 'bold' }}>Медиатека</Text>
-                    <Text style={{ fontSize: '15dp', fontWeight: 'bold' }}>Главная</Text>
-                    <Text style={{ fontSize: '15dp', fontWeight: 'bold' }}>Настроки</Text>
                 </View>
             </View>
 
@@ -125,15 +120,20 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
     },
     containerNav: {
-        flex: 1,
+        flex: 0.5,
         flexDirection: 'column',
-        alignContent: 'center'
+        alignContent: 'center',
+        borderTopLeftRadius: 40,
+        borderTopRightRadius: 40,
+        backgroundColor: 'black',
+        height: 60
     },
     icons: {
         flex: 1,
         marginLeft: '10%',
         marginRight: '10%',
         flexDirection: 'row',
+        alignItems:'center',
         justifyContent: 'space-between',
     },
     iconsText: {

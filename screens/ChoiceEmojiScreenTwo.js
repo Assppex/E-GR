@@ -7,7 +7,7 @@ import { Avatar, normalize } from "react-native-elements";
 
 
 
-export const ChoiceEmojiScreen = ({ navigation }) => {
+export const ChoiceEmojiScreenTwo = ({ navigation }) => {
 
     const e = require('emoji-dictionary')
     const [emoji] = useState([
@@ -17,20 +17,7 @@ export const ChoiceEmojiScreen = ({ navigation }) => {
         { key: '4', text: '\u{1F31D}' },
         { key: '5', text: '\u{1F320}' },
         { key: '6', text: '\u{1F423}' },
-        { key: '7', text: '\u{1F30B}' },
-        { key: '8', text: '\u{1F30B}' },
-        { key: '9', text: '\u{1F9AF}' },
-        { key: '10', text: '\u{1F30B}' },
-        { key: '11', text: '\u{1F30B}' },
-        { key: '12', text: '\u{1F30B}' },
-        { key: '13', text: '\u{1F30B}' },
-        { key: '14', text: '\u{1F30B}' },
-        { key: '15', text: '\u{1F30B}' },
-        { key: '16', text: '\u{1F30B}' },
-        { key: '17', text: '\u{1F30B}' },
-        { key: '18', text: '\u{1F30B}' },
-        { key: '19', text: '\u{1F30B}' },
-        { key: '20', text: '\u{1F30B}' },
+        
 
     ]);
 
@@ -39,15 +26,16 @@ export const ChoiceEmojiScreen = ({ navigation }) => {
 
     return (
         <LinearGradient colors={["#ed6ea0", "#ec8c69"]} style={styles.lineargradient}>
-            <View style={{ flex: 1, alignItems: "flex-end", alignContent: 'flex-end', marginRight: '3%', marginTop: '5%' }}>
-                <Avatar source={require('../images/homeIcon.png')} onPress={() => navigation.navigate('HomeScreen')} rounded size={30}></Avatar>
+            <View style={{ flex: 1, alignItems: "flex-end",flexDirection:'row', alignContent: 'flex-end', justifyContent:'space-between', marginRight: '3%', marginLeft:'3%', marginTop: '5%' }}>
+            <Avatar onPress={() => navigation.navigate('ChoiceEmojiScreen')} source={require('../images/backIcon.png')} rounded size={35} />
+                <Avatar onPress={() => navigation.navigate('HomeScreen')} source={require('../images/homeIcon.png')} rounded size={35} />
             </View>
             <View style={styles.textView}>
                 <Text style={{ fontSize: 25, fontWeight: 'bold' }}>Выбирай</Text>
             </View>
             <View style={styles.emojiView}>
                 <FlatList
-                    numColumns={4}
+                    numColumns={2}
                     keyExtractor={(item) => item.key}
                     data={emoji}
                     renderItem={({ item }) => (
@@ -62,8 +50,8 @@ export const ChoiceEmojiScreen = ({ navigation }) => {
                 >
 
                 </FlatList>
-                <View style={{flex: 3, alignItems:'center', justifyContent:"flex-start"}}>
-                    <TouchableOpacity onPress={() => navigation.navigate('ChoiceEmojiScreenTwo')}>
+                <View style={{flex: 2, alignItems:'center', justifyContent:"center"}}>
+                    <TouchableOpacity onPress={() => navigation.navigate('ChoiceEmojiScreenThree')}>
                         <Text style={{fontSize: 40}}> Next </Text>
                     </TouchableOpacity>
                     
@@ -79,7 +67,7 @@ const styles = StyleSheet.create({
         height: '100%',
     },
     textView: {
-        flex: 1,
+        flex: 4,
         alignItems: 'center',
         justifyContent: 'center'
     },

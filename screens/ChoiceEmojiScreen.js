@@ -38,12 +38,12 @@ export const ChoiceEmojiScreen = ({ navigation }) => {
 
 
     return (
-        <LinearGradient colors={["#ed6ea0", "#ec8c69"]} style={styles.lineargradient}>
+        <View style={styles.lineargradient}>
             <View style={{ flex: 1, alignItems: "flex-end", alignContent: 'flex-end', marginRight: '3%', marginTop: '5%' }}>
                 <Avatar source={require('../images/homeIcon.png')} onPress={() => navigation.navigate('HomeScreen')} rounded size={30}></Avatar>
             </View>
             <View style={styles.textView}>
-                <Text style={{ fontSize: 25, fontWeight: 'bold' }}>Выбирай</Text>
+                <Text style={{ fontSize: 25, fontWeight: 'bold', color: '#DC2A8A' }}>Выбирай</Text>
             </View>
             <View style={styles.emojiView}>
                 <FlatList
@@ -64,12 +64,12 @@ export const ChoiceEmojiScreen = ({ navigation }) => {
                 </FlatList>
                 <View style={{flex: 3, alignItems:'center', justifyContent:"flex-start"}}>
                     <TouchableOpacity onPress={() => navigation.navigate('ChoiceEmojiScreenTwo')}>
-                        <Text style={{fontSize: 40}}> Next </Text>
+                        <Text style={{fontSize: 70, color: '#DC2A8A'}}> {'>'} </Text>
                     </TouchableOpacity>
                     
                 </View>
             </View>
-        </LinearGradient>
+        </View>
     );
 }
 
@@ -77,6 +77,7 @@ const styles = StyleSheet.create({
     lineargradient: {
         width: '100%',
         height: '100%',
+        backgroundColor: '#15022D'
     },
     textView: {
         flex: 1,

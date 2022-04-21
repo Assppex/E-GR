@@ -23,7 +23,7 @@ export const HomeScreen = ({ navigation }) => {
             </View>
             <View style={styles.containerNav}>
                 <View style={styles.icons}>
-                    <Avatar source={require('../images/mediatekaIcon.png')} rounded size={40} onPress={() => navigation.navigate("MediaScreen")}>
+                    <Avatar source={require('../images/MediatekaIconFigma.png')} rounded size={40} onPress={() => navigation.navigate("MediaScreen")}>
                     </Avatar>
                     <Avatar source={require('../images/homeIcon.png')} rounded size={40} onPress={() => navigation.navigate("HomeScreen")}>
                     </Avatar>

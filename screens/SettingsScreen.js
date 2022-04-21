@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { View, Text, StyleSheet, Button, TouchableOpacity, Switch } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { AuthScreen } from "./AuthScreen";
-import { Avatar } from "react-native-elements";
+import { Avatar, Icon } from "react-native-elements";
 
 
 
@@ -16,7 +16,7 @@ export const SettingsScreen = ({ navigation }) => {
     }
 
     return (
-        <LinearGradient colors={["#ed6ea0", "#ec8c69"]} style={styles.lineargradient}>
+        <View style={styles.lineargradient}>
             <View style={styles.userAvatar}>
                 <View>
                     <Avatar rounded size={65} source={require('../images/kittyIcon.png')}
@@ -64,7 +64,7 @@ export const SettingsScreen = ({ navigation }) => {
             </View>
             <View style={styles.containerNav}>
                 <View style={styles.icons}>
-                    <Avatar source={require('../images/mediatekaIcon.png')} rounded size={40} onPress={() => navigation.navigate("MediaScreen")}>
+                    <Avatar source={require('../images/MediatekaIconFigma.png')} rounded size={40} onPress={() => navigation.navigate("MediaScreen")}>
                     </Avatar>
                     <Avatar source={require('../images/homeIcon.png')} rounded size={40} onPress={() => navigation.navigate("HomeScreen")} >
                     </Avatar>
@@ -73,7 +73,7 @@ export const SettingsScreen = ({ navigation }) => {
                 </View>
             </View>
 
-        </LinearGradient >
+        </View>
     );
 }
 
@@ -81,6 +81,7 @@ const styles = StyleSheet.create({
     lineargradient: {
         width: '100%',
         height: '100%',
+        backgroundColor: '#15022D' 
     },
     container: {
         flex: 2,
@@ -120,12 +121,12 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
     },
     containerNav: {
-        flex: 0.5,
+        flex: 0.67,
         flexDirection: 'column',
         alignContent: 'center',
-        borderTopLeftRadius: 40,
-        borderTopRightRadius: 40,
-        backgroundColor: 'black',
+        borderTopLeftRadius: 10,
+        borderTopRightRadius: 10,
+        backgroundColor: '#5C0A72',
         height: 60
     },
     icons: {

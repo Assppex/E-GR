@@ -1,6 +1,6 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React, { useState } from "react";
-import { View, Text, StyleSheet, Button, TouchableOpacity, ScrollView, FlatList } from "react-native";
+import { View, Text, StyleSheet, Button, TouchableOpacity, ScrollView, FlatList, Image, ImageBackground } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { AuthScreen } from "./AuthScreen";
 import { Avatar } from "react-native-elements";
@@ -23,29 +23,37 @@ export const MediaScreen = ({ navigation }) => {
     ]);
 
     return (
-        <LinearGradient colors={["#ed6ea0", "#ec8c69"]} style={styles.lineargradient}>
-
+        <View style={styles.lineargradient}>
+            
             <View style={styles.container}>
-                
+                <ScrollView>
+
+                    <View style={{marginLeft: 10, marginTop: 20}}>  
                        <FlatList
                         keyExtractor = {(item) => item.key}
                         data={playlists}
                         renderItem = {({ item }) =>(
                             <View style={styles.playlistIcon}>
                                 
-                                    <View>
-                                        
+                                    <View style={{marginTop: 15}}>
+                                        <Avatar source={item.imagePlaylist} size='large'></Avatar>
                                     </View>
-                                    <View>
-                                        <Text>{item.textTitle}</Text>
-                                        <Text>{item.textUnderTitile}</Text>
+                                    <View style={{marginLeft: 20,marginTop:15, justifyContent:'space-between'}}>
+                                        <TouchableOpacity onPress={() => navigation.navigate('PlayList')}>  
+                                            <Text style={{fontSize: 20, fontWeight:'bold', color: '#DC2A8A'}}>{item.textTitle}</Text>
+                                            <Text style={{fontSize: 17, color: '#A09F9F'}}>{item.textUnderTitile}</Text>
+                                        </TouchableOpacity>
                                     </View>
+                                
+                                
+                                    
                                 
                             </View>
                         )}
                         >
-                    </FlatList> 
-                    
+                    </FlatList>
+                    </View> 
+                </ScrollView>    
                 
             </View>
             <View style={styles.containerNav}>
@@ -59,7 +67,7 @@ export const MediaScreen = ({ navigation }) => {
                 </View>
             </View>
 
-        </LinearGradient >
+        </View >
     );
 }
 
@@ -67,6 +75,7 @@ const styles = StyleSheet.create({
     lineargradient: {
         width: '100%',
         height: '100%',
+        backgroundColor: '#15022D'
     },
     container: {
         flex: 5,
@@ -81,9 +90,12 @@ const styles = StyleSheet.create({
         paddingVertical: 5,
     },
     containerNav: {
-        flex: 1,
+        flex: 0.6,
         flexDirection: 'column',
-        alignContent: 'center'
+        alignContent: 'center',
+        borderTopLeftRadius: 10,
+        borderTopRightRadius:10,
+        backgroundColor: '#5C0A72'
     },
     icons: {
         flex: 1,
@@ -91,6 +103,8 @@ const styles = StyleSheet.create({
         marginRight: '10%',
         flexDirection: 'row',
         justifyContent: 'space-between',
+        alignItems:'center'
+        
     },
     iconsText: {
         flex: 1,

@@ -1,6 +1,6 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React, { useState } from "react";
-import { View, Text, StyleSheet, Button, TouchableOpacity, ScrollView, Image } from "react-native";
+import { View, Text, StyleSheet, Button, TouchableOpacity, ScrollView, Image, FlatList } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { AuthScreen } from "./AuthScreen";
 import { Avatar } from "react-native-elements";
@@ -11,12 +11,24 @@ import { Avatar } from "react-native-elements";
 
 export const PlayList = ({ navigation }) => {
 
+    const [list] = useState([
+        
+        {key:1, textTitle: 'Песня', textUnderTitile: 'Автор', imagePlaylist: require('../images/R8jZ.gif')},
+        {key:2, textTitle: 'Песня', textUnderTitile: 'Автор', imagePlaylist: require('../images/R8jZ.gif')},
+        {key:3, textTitle: 'Песня', textUnderTitile: 'Автор', imagePlaylist: require('../images/R8jZ.gif')},
+        {key:4, textTitle: 'Песня', textUnderTitile: 'Автор', imagePlaylist: require('../images/R8jZ.gif')},
+        {key:5, textTitle: 'Песня', textUnderTitile: 'Автор', imagePlaylist: require('../images/R8jZ.gif')},
+        {key:6, textTitle: 'Песня', textUnderTitile: 'Автор', imagePlaylist: require('../images/R8jZ.gif')},
+        {key:7, textTitle: 'Песня', textUnderTitile: 'Автор', imagePlaylist: require('../images/R8jZ.gif')},
+        {key:8, textTitle: 'Песня', textUnderTitile: 'Автор', imagePlaylist: require('../images/R8jZ.gif')},
+]);
+
     return (
-        <LinearGradient colors={["#ed6ea0", "#ec8c69"]} style={styles.lineargradient}>
+        <View style={styles.lineargradient}>
 
             <View style={styles.title}>
                 <Avatar rounded source={require('../images/backIcon.png')} onPress={() => navigation.navigate("MediaScreen")} size={30}></Avatar>
-                <Text style={{ fontSize: 20, fontWeight: 'bold' }}>Плэйлист №n</Text>
+                <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#FFCBDE' }}>Плэйлист №n</Text>
                 <Avatar rounded source={require('../images/homeIcon.png')} size={30} onPress={() => navigation.navigate("HomeScreen")}></Avatar>
             </View>
 
@@ -24,51 +36,43 @@ export const PlayList = ({ navigation }) => {
                 <Avatar size={225} source={require('../images/emblem.png')}></Avatar>
                 <View style={styles.toubchble}>
                     <TouchableOpacity>
-                        <Text>Ссылка на плэйлист</Text>
+                        <Text style={{color: '#E1007A', fontSize: 16}}>Яндекс.Музыка</Text>
                     </TouchableOpacity>
                 </View>
 
             </View>
             <View style={styles.scrollView}>
                 <ScrollView>
-                    <Text style={{ fontSize: 30, fontWeight: 'bold' }}>Песенки песенки песенки Песенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенки
-                        Песенки песенки песенки Песенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенки
-                        Песенки песенки песенки Песенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенки
-                        Песенки песенки песенки Песенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенки
-                        Песенки песенки песенки Песенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенки
-                        Песенки песенки песенки Песенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенки
-                        Песенки песенки песенки Песенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенки
-                        Песенки песенки песенки Песенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенки
-                        Песенки песенки песенки Песенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенки
-                        Песенки песенки песенки Песенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенки
-                        Песенки песенки песенки Песенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенки
-                        Песенки песенки песенки Песенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенки
-                        Песенки песенки песенки Песенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенки
-                        Песенки песенки песенки Песенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенки
-                        Песенки песенки песенки Песенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенки
-                        Песенки песенки песенки Песенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенкиПесенки песенки песенки
-                    </Text>
+                    <View>
+                        <FlatList
+                        keyExtractor = {(item) => item.key}
+                        data={list}
+                        renderItem = {({ item }) => (
+                            <View style={styles.playlistIcon}>
+                                    <View style={{marginLeft: 10, justifyContent:'center'}}>
+                                        <Text style={{fontSize:23, fontWeight: 'bold', color: '#DC2A8A'}}>{item.key < 10 ? '0'+item.key : item.key}</Text>
+                                    </View>
+                                    <View style={{marginLeft:20, marginTop: 15}}>
+                                        <Avatar source={item.imagePlaylist} size='medium'></Avatar>
+                                    </View>
+                                    <View style={{marginLeft: 20,marginTop:15, justifyContent:'space-between'}}>
+                                        <TouchableOpacity onPress={() => navigation.navigate('PlayList')}>  
+                                            <Text style={{fontSize: 20, fontWeight:'bold', color: '#DC2A8A'}}>{item.textTitle}</Text>
+                                            <Text style={{fontSize: 17, color: '#A09F9F'}}>{item.textUnderTitile}</Text>
+                                        </TouchableOpacity>
+                                    </View>    
+                            </View>
+                        )}
+                    ></FlatList> 
+                    </View>
+                       
 
                 </ScrollView>
             </View>
 
-            <View style={styles.containerNav}>
-                <View style={styles.icons}>
-                    <Avatar source={require('../images/mediatekaIcon.png')} rounded size={60} onPress={() => navigation.navigate("MediaScreen")}>
-                    </Avatar>
-                    <Avatar source={require('../images/homeIcon.png')} rounded size={60} onPress={() => navigation.navigate("HomeScreen")} >
-                    </Avatar>
-                    <Avatar source={require('../images/settingsIcon.png')} rounded size={60} onPress={() => navigation.navigate("SettingsScreen")}>
-                    </Avatar>
-                </View>
-                <View style={styles.iconsText}>
-                    <Text style={{ fontSize: '15dp', fontWeight: 'bold' }}>Медиатека</Text>
-                    <Text style={{ fontSize: '15dp', fontWeight: 'bold' }}>Главная</Text>
-                    <Text style={{ fontSize: '15dp', fontWeight: 'bold' }}>Настроки</Text>
-                </View>
-            </View>
+            
 
-        </LinearGradient >
+        </View>
     );
 }
 
@@ -76,6 +80,7 @@ const styles = StyleSheet.create({
     lineargradient: {
         width: '100%',
         height: '100%',
+        backgroundColor: '#15022D'
     },
     title: {
         flex: 1,
@@ -84,13 +89,16 @@ const styles = StyleSheet.create({
         marginLeft: 5,
         marginRight: 5,
         justifyContent: 'space-between',
-        alignContent: 'center'
+        
     },
     scrollView: {
         flex: 5,
-        marginTop: 10,
-        alignItems: 'center',
-        justifyContent: 'center'
+        marginTop: 10, 
+    },
+    playlistIcon:{
+        flexDirection: "row",
+        flex:1,
+        
     },
     container: {
         flex: 5,
@@ -102,11 +110,11 @@ const styles = StyleSheet.create({
     },
     toubchble: {
         borderRadius: 60,
-        marginTop: 5,
+        marginTop: 10,
         alignContent: 'center',
-        paddingHorizontal: 25,
+        paddingHorizontal: 70,
         paddingVertical: 5,
-        backgroundColor: '#1DB954'
+        backgroundColor: '#FFB1CE'
     },
     containerNav: {
         flex: 2,

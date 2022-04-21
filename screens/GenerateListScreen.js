@@ -9,7 +9,7 @@ import { Avatar } from "react-native-elements";
 
 export const GenerateListScreen = ({ navigation }) => {
     return (
-        <LinearGradient colors={["#ed6ea0", "#ec8c69"]} style={styles.lineargradient}>
+        <View style={styles.lineargradient}>
             <View style={styles.topView}>
                 <Avatar onPress={() => navigation.navigate('ChoiceEmojiScreenThree')} source={require('../images/backIcon.png')} rounded size={35} />
                 <Avatar onPress={() => navigation.navigate('HomeScreen')} source={require('../images/homeIcon.png')} rounded size={35} />
@@ -24,18 +24,18 @@ export const GenerateListScreen = ({ navigation }) => {
                 <Text style={{ fontSize: 30, fontWeight: 'bold' }}>Начать сортировку?</Text>
             </View>
             <View style={styles.buttons}>
-                <LinearGradient colors={["#1DB954", '#1DB954']} style={styles.touchble}>
+                <View style={styles.touchble}>
                     <TouchableOpacity onPress={() => navigation.navigate('TinderScreen')}>
-                        <Text style={{ fontSize: 30, fontWeight: 'bold' }}>да</Text>
+                        <Text style={{ fontSize: 30, fontWeight: '500', color: '#DC2A8A'}}>Да </Text>
                     </TouchableOpacity>
-                </LinearGradient>
-                <LinearGradient colors={['#1DB954', '#1DB954']} style={styles.touchble}>
+                </View>
+                <View style={styles.touchble}>
                     <TouchableOpacity>
-                        <Text style={{ fontSize: 30, fontWeight: 'bold' }}>нет</Text>
+                        <Text style={{ fontSize: 30, fontWeight: '500', color: '#DC2A8A' }}>Нет</Text>
                     </TouchableOpacity>
-                </LinearGradient>
+                </View>
             </View>
-        </LinearGradient >
+        </View >
     );
 }
 
@@ -43,6 +43,7 @@ const styles = StyleSheet.create({
     lineargradient: {
         width: '100%',
         height: '100%',
+        backgroundColor: '#15022D'
     },
     topView: {
         flex: 1,
@@ -76,9 +77,12 @@ const styles = StyleSheet.create({
     },
     touchble: {
         alignContent: 'center',
-        borderRadius: 50,
+        borderRadius: 5,
         paddingHorizontal: 30,
-        paddingVertical: 10
+        paddingVertical: 10,
+        backgroundColor: '#15022D',
+        borderColor: '#DC2A8A',
+        borderWidth: 3
     }
 
 })

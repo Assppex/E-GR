@@ -3,9 +3,7 @@ import {
   View,
   Text,
 } from 'react-native';
-import { AppRegistry } from 'react-native';
-import App1 from 'C:/Users/Артем/E-GR/Plr/App1.js';
-import {name as  appName} from 'C:/Users/Артем/E-GR/app.json'
+import App1 from '../Plr/App1.js';
 export const TinderScreen=({})=>{
 return(<View style={styles.container}><App1/></View>
 );

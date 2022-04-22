@@ -41,7 +41,20 @@ export const ChoiceEmojiScreenThree = ({ route, navigation }) => {
                     renderItem={({ item }) => (
                         <View style={styles.oneemoji}>
                             {/* <Avatar onPress={() => navigation.navigate('GenerateListScreen')} rounded size={60} source={require('e../images/emblem.png')} /> */}
-                            <TouchableOpacity>
+                            <TouchableOpacity onPress={() => {
+								if (!item.pressed) {
+									emojis.selected_on_screen3.push(emojis.screen3[item.key]);
+									item.pressed = false;
+								}
+								else {
+									for (var i = 0; i < emojis.selected_on_screen3.length; i++) {
+										if (emojis.selected_on_screen3[i] == emojis.screen3[item.key]) {
+											emojis.selected_on_screen3.splice(i, 1);
+										}
+									}
+									item.pressed = true;
+								}
+							}}>
                                <Text style={{fontSize: 45}}>{item.text}</Text> 
                             </TouchableOpacity>
                             
@@ -51,7 +64,7 @@ export const ChoiceEmojiScreenThree = ({ route, navigation }) => {
 
                 </FlatList>
                 <View style={{flex: 2, alignItems:'center', justifyContent:"center"}}>
-                    <TouchableOpacity onPress={() => navigation.navigate('GenerateListScreen')}>
+                    <TouchableOpacity onPress={() => navigation.navigate('GenerateListScreen', {emojis: emojis})}>
                         <Text style={{fontSize: 40}}> Next </Text>
                     </TouchableOpacity>
                     

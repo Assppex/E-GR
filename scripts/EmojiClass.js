@@ -17,6 +17,8 @@ export class Emojis {
 		this.all_screen2 = [];
 		this.all_else = [];
 		this.onScreen1 = true;
+		this.selected_on_screen3 = [];
+		this.result;
 
 		for (const emoji of this.all) {
 			if (emoji.subcategory == "База") {
@@ -143,6 +145,35 @@ export class Emojis {
 		}
 	}
 
+	CalculateResult() {
+		var sub = [];
+
+		for (var em of this.selected_on_screen3) {
+			var found = false;
+			for (var s of sub) {
+				if (em.subcategory == s.subcategory) {
+					s.value += em.weight;
+					found = true;
+				}
+				else {
+				}
+			}
+
+			if (!found) {
+				sub.push({subcategory: em.subcategory, value: em.weight})
+			}
+		}
+
+
+		sub.sort(function(a, b) {
+			return b.value - a.value;
+		})
+
+		if (sub.length > 0 ) {
+			this.result = sub[0].subcategory;
+		}
+		else this.result = "Витя АК";
+	}
 }
 
 

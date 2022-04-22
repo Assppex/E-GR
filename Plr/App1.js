@@ -6,6 +6,9 @@ import {
 import Header from './Header.js';
 import Albumart from './Albumart.js';
 import TrackDet from './TrackDet.js';
+
+
+
 var playlists= [
   {category: "Легкая улбыкае", value: 0}, 
   {category: "Депрессия", value: 0}, 
@@ -33,9 +36,11 @@ var playlists= [
   {category: "Эмбиент", value: 0},
   {category: "Пост-панк", value: 0},
   {category: "Вичуха", value: 0},
-]
-class App extends Component {
-  render() {
+];
+
+
+export const App1 = ({ route, navigation }) => {
+  render() 
     return (
       <View style={styles.container}>
         <Header message="соси жопу тварь ебаная тут мог быть ваш слайдер"/>
@@ -43,9 +48,8 @@ class App extends Component {
         <TrackDet title="Stressed Out" artist="Twenty One Pilots"/>
       </View>
     );
-  }
+  
 }
-export default App;
 
 const styles = {
   container: {

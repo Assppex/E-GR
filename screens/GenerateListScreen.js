@@ -3,11 +3,17 @@ import React, { useState } from "react";
 import { View, Text, StyleSheet, Button, TouchableOpacity, Switch } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { Avatar } from "react-native-elements";
+import Header from '../Plr/Header.js';
+import Albumart from '../Plr/Albumart.js';
+import TrackDet from '../Plr/TrackDet.js';
 
 
 
+export const GenerateListScreen = ({ route, navigation }) => {
+	var emojis = route.params.emojis;
+	emojis.CalculateResult();
+	console.log(emojis);
 
-export const GenerateListScreen = ({ navigation }) => {
     return (
         <LinearGradient colors={["#ed6ea0", "#ec8c69"]} style={styles.lineargradient}>
             <View style={styles.topView}>
@@ -25,7 +31,7 @@ export const GenerateListScreen = ({ navigation }) => {
             </View>
             <View style={styles.buttons}>
                 <LinearGradient colors={["#1DB954", '#1DB954']} style={styles.touchble}>
-                    <TouchableOpacity onPress={() => navigation.navigate('TinderScreen')}>
+                    <TouchableOpacity onPress={() => navigation.navigate("Test", {emojis: emojis})}>
                         <Text style={{ fontSize: 30, fontWeight: 'bold' }}>да</Text>
                     </TouchableOpacity>
                 </LinearGradient>

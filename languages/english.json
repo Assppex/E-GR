@@ -9,6 +9,9 @@
         "Playlist": "Playlist",
         "Yandex.Music": "Yandex.Music",
         "Choose": "Choose",
-        "PlayListGenerated": "Playlist generated"
+        "PlayListGenerated": "Playlist generated",
+        "Duration": "duration",
+        "Song": "Song",
+        "Singer": "Singer"
     }
 }

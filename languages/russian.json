@@ -9,6 +9,9 @@
         "Playlist": "Плэйлист",
         "Yandex.Music": "Яндекс.Музыка",
         "Choose": "Выбирай",
-        "PlayListGenerated": "Плэйлист сгенерирован"
+        "PlayListGenerated": "Плэйлист сгенерирован",
+        "Duration": "продолжительность",
+        "Song": "Песня",
+        "Singer": "Исполнитель"
     }
 }

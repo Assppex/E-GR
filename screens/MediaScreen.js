@@ -5,22 +5,27 @@ import { LinearGradient } from "expo-linear-gradient";
 import { AuthScreen } from "./AuthScreen";
 import { Avatar } from "react-native-elements";
 import Svg, { Path } from "react-native-svg";
+import { useTranslation } from "react-i18next";
+import i18n from '../languages/i18n';
+import i18next from "i18next";
 
 
 
 
 export const MediaScreen = ({ navigation }) => {
 
+    const { t, i18n } = useTranslation()
+
     const [playlists] = useState([
 
-        { key: 1, textTitle: 'Плейлист №1', textUnderTitile: 'продолжительность', imagePlaylist: require('../images/R8jZ.gif') },
-        { key: 2, textTitle: 'Плейлист №2', textUnderTitile: 'продолжительность', imagePlaylist: require('../images/R8jZ.gif') },
-        { key: 3, textTitle: 'Плейлист №3', textUnderTitile: 'продолжительность', imagePlaylist: require('../images/R8jZ.gif') },
-        { key: 4, textTitle: 'Плейлист №4', textUnderTitile: 'продолжительность', imagePlaylist: require('../images/R8jZ.gif') },
-        { key: 5, textTitle: 'Плейлист №5', textUnderTitile: 'продолжительность', imagePlaylist: require('../images/R8jZ.gif') },
-        { key: 6, textTitle: 'Плейлист №6', textUnderTitile: 'продолжительность', imagePlaylist: require('../images/R8jZ.gif') },
-        { key: 7, textTitle: 'Плейлист №7', textUnderTitile: 'продолжительность', imagePlaylist: require('../images/R8jZ.gif') },
-        { key: 8, textTitle: 'Плейлист №8', textUnderTitile: 'продолжительность', imagePlaylist: require('../images/R8jZ.gif') },
+        { key: 1, textTitle: t("Playlist") + " №1", textUnderTitile: t("Duration"), imagePlaylist: require('../images/R8jZ.gif') },
+        { key: 2, textTitle: t("Playlist") + '№2', textUnderTitile: t("Duration"), imagePlaylist: require('../images/R8jZ.gif') },
+        { key: 3, textTitle: t("Playlist") + '№3', textUnderTitile: t("Duration"), imagePlaylist: require('../images/R8jZ.gif') },
+        { key: 4, textTitle: t("Playlist") + '№4', textUnderTitile: t("Duration"), imagePlaylist: require('../images/R8jZ.gif') },
+        { key: 5, textTitle: t("Playlist") + '№5', textUnderTitile: t("Duration"), imagePlaylist: require('../images/R8jZ.gif') },
+        { key: 6, textTitle: t("Playlist") + '№6', textUnderTitile: t("Duration"), imagePlaylist: require('../images/R8jZ.gif') },
+        { key: 7, textTitle: t("Playlist") + '№7', textUnderTitile: t("Duration"), imagePlaylist: require('../images/R8jZ.gif') },
+        { key: 8, textTitle: t("Playlist") + '№8', textUnderTitile: t("Duration"), imagePlaylist: require('../images/R8jZ.gif') },
     ]);
 
     return (

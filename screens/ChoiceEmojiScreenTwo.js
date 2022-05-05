@@ -4,6 +4,9 @@ import { View, Text, StyleSheet, Button, TouchableOpacity, FlatList } from "reac
 import { LinearGradient } from "expo-linear-gradient";
 import { AuthScreen } from "./AuthScreen";
 import { Avatar, normalize } from "react-native-elements";
+import { useTranslation } from "react-i18next";
+import i18next from "i18next";
+import i18n from '../languages/i18n';
 
 
 
@@ -20,7 +23,7 @@ export const ChoiceEmojiScreenTwo = ({ navigation }) => {
 
 
     ]);
-
+    const { t, i18n } = useTranslation()
 
 
 
@@ -31,7 +34,7 @@ export const ChoiceEmojiScreenTwo = ({ navigation }) => {
                 <Avatar onPress={() => navigation.navigate('HomeScreen')} source={require('../images/homeIcon.png')} rounded size={35} />
             </View>
             <View style={styles.textView}>
-                <Text style={{ fontSize: 25, fontWeight: 'bold', color: '#DC2A8A' }}>Выбирай</Text>
+                <Text style={{ fontSize: 25, fontWeight: 'bold', color: '#DC2A8A' }}>{t("Choose")}</Text>
             </View>
             <View style={styles.emojiView}>
                 <FlatList

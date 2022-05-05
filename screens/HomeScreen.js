@@ -8,11 +8,6 @@ import Svg, { Path } from "react-native-svg";
 import i18n from '../languages/i18n';
 import { useTranslation } from "react-i18next";
 
-const lang = [
-    { label: 'english', value: "en" },
-    { label: 'russin', value: 'ru' }
-];
-
 
 
 

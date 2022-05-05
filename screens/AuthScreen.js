@@ -8,27 +8,26 @@ import { Avatar } from "react-native-elements";
 
 
 export const AuthScreen = ({ navigation }) => {
-    const e = require('emoji-dictionary')
+
     return (
-        <ImageBackground source={require('../images/vibe.gif')} style={styles.lineargradient}>
+        <View style={styles.lineargradient}>
             <View style={styleEmblem.emblem}>
-                <Avatar rounded size={200} source={require("../images/vibe.gif")}></Avatar>
+                <Avatar size={200} source={require("../images/super_logo.png")}></Avatar>
                 {/* <ImageBackground source={require('../images/emblem.png')}></ImageBackground> */}
-                <Text style={styles.text}>emope.mus</Text>
             </View>
             <View style={styles.button}>
-                <ImageBackground source={require('../images/emblem.png')} style={styles.toubchble}>
+                <View source={require('../images/super_logo.png')} style={styles.toubchble}>
                     <TouchableOpacity onPress={() => navigation.navigate("HomeScreen")}>
-                        <Text style={{ fontSize: 25, fontWeight: 'bold' }}>Войти в аккаунт</Text>
+                        <Text style={{ fontSize: 25, fontWeight: '600', color: '#E1007A' }}>Войти в аккаунт</Text>
                     </TouchableOpacity>
-                </ImageBackground>
+                </View>
                 <TouchableOpacity style={{ margin: 20 }} onPress={() => navigation.navigate("HomeScreen")}>
-                    <Text style={{ fontSize: 17, fontWeight: 'bold' }}>Нет аккаунта</Text>
+                    <Text style={{ fontSize: 17, fontWeight: '600', color: '#FD99BED4', opacity: 0.83 }}>Нет аккаунта</Text>
                 </TouchableOpacity>
             </View>
 
 
-            </ImageBackground>
+        </View>
     );
 }
 
@@ -41,16 +40,20 @@ const styles = StyleSheet.create({
     button: {
         flex: 1,
         alignItems: 'center',
+
     },
     toubchble: {
         borderRadius: 40,
         alignContent: 'center',
         paddingHorizontal: 40,
         paddingVertical: 9,
-        overflow: 'hidden'
+        overflow: 'hidden',
+        borderColor: '#E1007A',
+        borderWidth: 2.5
     },
     lineargradient: {
-        flex: 1
+        flex: 1,
+        backgroundColor: '#15022D'
     },
     text: {
         margin: 10,

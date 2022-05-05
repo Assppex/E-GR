@@ -9,7 +9,7 @@ import { Avatar, normalize } from "react-native-elements";
 
 export const ChoiceEmojiScreen = ({ navigation }) => {
 
-    const e = require('emoji-dictionary')
+
     const [emoji] = useState([
         { key: '1', text: '\u{1F30B}' },
         { key: '2', text: '\u{1F30A}' },
@@ -54,19 +54,19 @@ export const ChoiceEmojiScreen = ({ navigation }) => {
                         <View style={styles.oneemoji}>
                             {/* <Avatar onPress={() => navigation.navigate('GenerateListScreen')} rounded size={60} source={require('e../images/emblem.png')} /> */}
                             <TouchableOpacity>
-                               <Text style={{fontSize: 45}}>{item.text}</Text> 
+                                <Text style={{ fontSize: 45 }}>{item.text}</Text>
                             </TouchableOpacity>
-                            
+
                         </View>
                     )}
                 >
 
                 </FlatList>
-                <View style={{flex: 3, alignItems:'center', justifyContent:"flex-start"}}>
+                <View style={{ flex: 3, alignItems: 'center', justifyContent: "flex-start" }}>
                     <TouchableOpacity onPress={() => navigation.navigate('ChoiceEmojiScreenTwo')}>
-                        <Text style={{fontSize: 70, color: '#DC2A8A'}}> {'>'} </Text>
+                        <Text style={{ fontSize: 70, color: '#DC2A8A' }}> {'>'} </Text>
                     </TouchableOpacity>
-                    
+
                 </View>
             </View>
         </View>

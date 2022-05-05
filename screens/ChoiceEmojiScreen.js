@@ -7,39 +7,22 @@ import { Avatar, normalize } from "react-native-elements";
 import { useTranslation } from "react-i18next";
 import i18next from "i18next";
 import i18n from '../languages/i18n';
+import { Emojis } from "../scripts/EmojiClass"
 
 
+var emojis = new Emojis();
+global.emojis=emojis;
 
-export const ChoiceEmojiScreen = ({ navigation }) => {
-
-
-    const [emoji] = useState([
-        { key: '1', text: '\u{1F30B}' },
-        { key: '2', text: '\u{1F30A}' },
-        { key: '3', text: '\u{1F31C}' },
-        { key: '4', text: '\u{1F31D}' },
-        { key: '5', text: '\u{1F320}' },
-        { key: '6', text: '\u{1F423}' },
-        { key: '7', text: '\u{1F30B}' },
-        { key: '8', text: '\u{1F30B}' },
-        { key: '9', text: '\u{1F9AF}' },
-        { key: '10', text: '\u{1F30B}' },
-        { key: '11', text: '\u{1F30B}' },
-        { key: '12', text: '\u{1F30B}' },
-        { key: '13', text: '\u{1F30B}' },
-        { key: '14', text: '\u{1F30B}' },
-        { key: '15', text: '\u{1F30B}' },
-        { key: '16', text: '\u{1F30B}' },
-        { key: '17', text: '\u{1F30B}' },
-        { key: '18', text: '\u{1F30B}' },
-        { key: '19', text: '\u{1F30B}' },
-        { key: '20', text: '\u{1F30B}' },
-
-    ]);
+var base_emojis = [];
+for (var i = 0; i < emojis.base.length; i++) {
+	base_emojis.push({key: i, text: emojis.base[i].code, pressed: false});
+}
 
     const { t, i18n } = useTranslation()
 
+export const ChoiceEmojiScreen = ({ navigation }) => {
 
+    const [emoji] = useState(base_emojis);
 
     return (
         <View style={styles.lineargradient}>
@@ -57,20 +40,18 @@ export const ChoiceEmojiScreen = ({ navigation }) => {
                     renderItem={({ item }) => (
                         <View style={styles.oneemoji}>
                             {/* <Avatar onPress={() => navigation.navigate('GenerateListScreen')} rounded size={60} source={require('e../images/emblem.png')} /> */}
-                            <TouchableOpacity>
-                                <Text style={{ fontSize: 45 }}>{item.text}</Text>
+                            <TouchableOpacity onPress={() => {item.pressed ? emojis.RemoveFromSum(item.key) : emojis.AddToSum(item.key); item.pressed = !item.pressed}}>
+                               <Text style={{fontSize: 45}}>{item.text}</Text> 
                             </TouchableOpacity>
-
                         </View>
                     )}
                 >
 
                 </FlatList>
                 <View style={{ flex: 3, alignItems: 'center', justifyContent: "flex-start" }}>
-                    <TouchableOpacity onPress={() => navigation.navigate('ChoiceEmojiScreenTwo')}>
+					<TouchableOpacity onPress={() => navigation.navigate('ChoiceEmojiScreenTwo', {emojis: emojis})}>
                         <Text style={{ fontSize: 70, color: '#DC2A8A' }}> {'>'} </Text>
                     </TouchableOpacity>
-
                 </View>
             </View>
         </View>

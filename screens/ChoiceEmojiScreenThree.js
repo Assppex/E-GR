@@ -9,19 +9,19 @@ import i18next from "i18next";
 import i18n from '../languages/i18n';
 
 
-export const ChoiceEmojiScreenThree = ({ navigation }) => {
+export const ChoiceEmojiScreenThree = ({ route, navigation }) => {
 
+	var emojis = route.params.emojis;
+	emojis.CalculateScreen3();
 
-    const [emoji] = useState([
+	var screen3_emojis = [];
+	for (var i = 0; i < emojis.screen3.length; i++) {
+		screen3_emojis.push({key: i, text: emojis.screen3[i].code});
+	}
 
-        { key: '1', text: '\u{1F31C}' },
-        { key: '2', text: '\u{1F31D}' },
-        { key: '3', text: '\u{1F320}' },
-        { key: '4', text: '\u{1F423}' },
-        { key: '5', text: '\u{1F30B}' },
-        { key: '6', text: '\u{1F30A}' },
+	console.log(emojis);
 
-    ]);
+    const [emoji] = useState(screen3_emojis);
 
     const { t, i18n } = useTranslation()
 
@@ -43,8 +43,21 @@ export const ChoiceEmojiScreenThree = ({ navigation }) => {
                     renderItem={({ item }) => (
                         <View style={styles.oneemoji}>
                             {/* <Avatar onPress={() => navigation.navigate('GenerateListScreen')} rounded size={60} source={require('e../images/emblem.png')} /> */}
-                            <TouchableOpacity>
-                                <Text style={{ fontSize: 45 }}>{item.text}</Text>
+                            <TouchableOpacity onPress={() => {
+								if (!item.pressed) {
+									emojis.selected_on_screen3.push(emojis.screen3[item.key]);
+									item.pressed = false;
+								}
+								else {
+									for (var i = 0; i < emojis.selected_on_screen3.length; i++) {
+										if (emojis.selected_on_screen3[i] == emojis.screen3[item.key]) {
+											emojis.selected_on_screen3.splice(i, 1);
+										}
+									}
+									item.pressed = true;
+								}
+							}}>
+                               <Text style={{fontSize: 45}}>{item.text}</Text> 
                             </TouchableOpacity>
 
                         </View>
@@ -52,9 +65,9 @@ export const ChoiceEmojiScreenThree = ({ navigation }) => {
                 >
 
                 </FlatList>
-                <View style={{ flex: 2, alignItems: 'center', justifyContent: "center" }}>
-                    <TouchableOpacity onPress={() => navigation.navigate('GenerateListScreen')}>
-                        <Text style={{ fontSize: 40 }}> Next </Text>
+                <View style={{flex: 2, alignItems:'center', justifyContent:"center"}}>
+                    <TouchableOpacity onPress={() => navigation.navigate('GenerateListScreen', {emojis: emojis})}>
+                        <Text style={{fontSize: 40}}> Next </Text>
                     </TouchableOpacity>
 
                 </View>

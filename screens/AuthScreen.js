@@ -8,7 +8,6 @@ import { Avatar } from "react-native-elements";
 
 
 export const AuthScreen = ({ navigation }) => {
-
     return (
         <View style={styles.lineargradient}>
             <View style={styleEmblem.emblem}>

@@ -1,5 +1,5 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import React, { useState } from "react";
+import React, { useState } from "react"
 import { View, Text, StyleSheet, Button, TouchableOpacity, FlatList } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { AuthScreen } from "./AuthScreen";
@@ -25,8 +25,14 @@ export const ChoiceEmojiScreenTwo = ({ route, navigation }) => {
     return (
         <LinearGradient colors={["#ed6ea0", "#ec8c69"]} style={styles.lineargradient}>
             <View style={{ flex: 1, alignItems: "flex-end",flexDirection:'row', alignContent: 'flex-end', justifyContent:'space-between', marginRight: '3%', marginLeft:'3%', marginTop: '5%' }}>
-            <Avatar onPress={() => navigation.navigate('ChoiceEmojiScreen')} source={require('../images/backIcon.png')} rounded size={35} />
-                <Avatar onPress={() => navigation.navigate('HomeScreen')} source={require('../images/homeIcon.png')} rounded size={35} />
+		<Avatar onPress={() => {
+			emojis.ClearSum();
+			emojis.screen2.splice(0, emojis.screen2.length);
+			navigation.navigate('ChoiceEmojiScreen');
+			}
+		}
+			source={require('../images/backIcon.png')} rounded size={35} />
+		<Avatar onPress={() => navigation.navigate('HomeScreen')} source={require('../images/homeIcon.png')} rounded size={35} />
             </View>
             <View style={styles.textView}>
                 <Text style={{ fontSize: 25, fontWeight: 'bold' }}>Выбирай</Text>

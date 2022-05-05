@@ -1,11 +1,11 @@
 class SingleEmoji {
-  constructor(unicode, weight, category, subcategory, id) {
-      this.code = unicode;
-      this.weight = weight;
-      this.category = category;
-      this.subcategory = subcategory;
-      this.id = id;
-  }
+	constructor(unicode, weight, category, subcategory, id) {
+		this.code = unicode;
+		this.weight = weight;
+		this.category = category;
+		this.subcategory = subcategory;
+		this.id = id;
+	}
 }
 
 export class Emojis {
@@ -33,19 +33,19 @@ export class Emojis {
 		}
 
 		this.sum = [
-			{category: "Радостное", value: 0}, 
-			{category: "Грустное", value: 0}, 
-			{category: "Флекс", value: 0}, 
-			{category: "Молодежное", value: 0}, 
-			{category: "Спокойное", value: 0}, 
-			{category: "Работа/учеба", value: 0}, 
-			{category: "Агрессивное", value: 0}, 
-			{category: "Ностальгия", value: 0}, 
-			{category: "Мрачное", value: 0}, 
+			{ category: "Радостное", value: 0 },
+			{ category: "Грустное", value: 0 },
+			{ category: "Флекс", value: 0 },
+			{ category: "Молодежное", value: 0 },
+			{ category: "Спокойное", value: 0 },
+			{ category: "Работа/учеба", value: 0 },
+			{ category: "Агрессивное", value: 0 },
+			{ category: "Ностальгия", value: 0 },
+			{ category: "Мрачное", value: 0 },
 		]
 	}
 
-	
+
 	AddToSum(key) {
 		for (var i of this.sum) {
 			if (this.onScreen1) {
@@ -86,7 +86,7 @@ export class Emojis {
 	CalculateScreen2() {
 		this.onScreen1 = false;
 
-		var sortedSum = this.sum.sort(function(a, b) {
+		var sortedSum = this.sum.sort(function (a, b) {
 			return b.value - a.value;
 		})
 
@@ -102,7 +102,7 @@ export class Emojis {
 		var num_sub2 = 0;
 		var num_sub3 = 0;
 
-		switch(num_subcategories) {
+		switch (num_subcategories) {
 			case 1:
 				num_sub1 = 6;
 				break;
@@ -121,20 +121,20 @@ export class Emojis {
 			if (em.category == sortedSum[0].category && num_sub1 > 0) {
 				this.screen2.push(em);
 				num_sub1--;
-			} 
+			}
 			if (em.category == sortedSum[1].category && num_sub2 > 0) {
 				this.screen2.push(em);
 				num_sub2--;
-			} 
+			}
 			if (em.category == sortedSum[2].category && num_sub3 > 0) {
 				this.screen2.push(em);
 				num_sub3--;
-			} 
+			}
 		}
 	}
 
 	CalculateScreen3() {
-		var sortedSum = this.sum.sort(function(a, b) {
+		var sortedSum = this.sum.sort(function (a, b) {
 			return b.value - a.value;
 		})
 
@@ -160,16 +160,16 @@ export class Emojis {
 			}
 
 			if (!found) {
-				sub.push({subcategory: em.subcategory, value: em.weight})
+				sub.push({ subcategory: em.subcategory, value: em.weight })
 			}
 		}
 
 
-		sub.sort(function(a, b) {
+		sub.sort(function (a, b) {
 			return b.value - a.value;
 		})
 
-		if (sub.length > 0 ) {
+		if (sub.length > 0) {
 			this.result = sub[0].subcategory;
 		}
 		else this.result = "Витя АК";
@@ -177,8 +177,7 @@ export class Emojis {
 }
 
 
-function InitializeEmojis()
-{
+function InitializeEmojis() {
 	var res = [];
 
 	// https://docs.google.com/spreadsheets/d/15lAB2fIap1gdpQms-ihaG5klumSotlx8fZYhEe7EBv0/edit?usp=sharing

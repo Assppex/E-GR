@@ -30,7 +30,7 @@ export default function App() {
         <Stack.Screen name='TinderScreen' component={TinderScreen}></Stack.Screen>
         <Stack.Screen name='ChoiceEmojiScreenTwo' component={ChoiceEmojiScreenTwo}></Stack.Screen>
         <Stack.Screen name='ChoiceEmojiScreenThree' component={ChoiceEmojiScreenThree}></Stack.Screen>
-	  <Stack.Screen name='Test' component={Test}></Stack.Screen>
+        <Stack.Screen name='Test' component={Test}></Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
 

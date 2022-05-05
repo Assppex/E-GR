@@ -4,9 +4,9 @@ import {
   Text,
 } from 'react-native';
 import App1 from '../Plr/App1.js';
-export const TinderScreen=({})=>{
-return(<View style={styles.container}><App1/></View>
-);
+export const TinderScreen = ({ }) => {
+  return (<View style={styles.container}><App1 /></View>
+  );
 }
 const styles = {
   container: {
